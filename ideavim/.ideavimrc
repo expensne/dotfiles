@@ -1,0 +1,2 @@
+let g:idea = 1
+source ~/dotfiles/ideavim/init.vim
