@@ -38,6 +38,10 @@ return {
     end,
   },
   {
+    "tpope/vim-surround",
+    event = "VeryLazy"
+  },
+  {
     "github/copilot.vim",
     event = "InsertEnter",
     config = function()
