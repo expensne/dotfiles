@@ -20,8 +20,13 @@ map("n", "gf", "<C-i>", { desc = "Go forward" })
 
 -- Splitting
 map({ "n", "v" }, "<leader>v", "<C-w>v", { desc = "Split Vertically" })
-map({ "n", "v" }, "<leader>h", "<C-w>s", { desc = "Split Horizontally" })
-map({ "n", "v" }, "<leader>q", "<C-w>c", { desc = "Close Current Split" })
+map({ "n", "v" }, "<leader>s", "<C-w>s", { desc = "Split Horizontally" })
+map({ "n", "v" }, "<leader>c", "<C-w>c", { desc = "Close Current Split" })
+
+map("n", "<C-w>+", ":resize +5<CR>", { desc = "Increase height by 5" })
+map("n", "<C-w>-", ":resize -5<CR>", { desc = "Decrease height by 5" })
+map("n", "<C-w><", ":vertical resize -5<CR>", { desc = "Decrease width by 5" })
+map("n", "<C-w>>", ":vertical resize +5<CR>", { desc = "Increase width by 5" })
 
 -- Terminal
 map("n", "<leader>H", function()
