@@ -29,7 +29,7 @@ map("n", "<C-w><", ":vertical resize -5<CR>", { desc = "Decrease width by 5" })
 map("n", "<C-w>>", ":vertical resize +5<CR>", { desc = "Increase width by 5" })
 
 -- Terminal
-map("n", "<leader>H", function()
+map("n", "<leader>S", function()
   require("nvchad.term").new { pos = "sp" }
 end, { desc = "terminal new horizontal term" })
 
@@ -43,17 +43,19 @@ map({ "n", "i" }, "<C-m>", function()
   if status == 1 then
     vim.cmd "Copilot disable"
   else
-    vim.cmd "Copilot setup"
+    -- vim.cmd "Copilot setup"
     vim.cmd "Copilot enable"
   end
 end, { desc = "Toggle Copilot" })
 
 -- Suggestions
--- map("i", "<C-l>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
-map("i", "<leader><Tab>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
-
+map("i", "<C-l>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 map("i", "<C-]>", "copilot#Next()", { expr = true, silent = true, desc = "Copilot Next" })
 map("i", "<C-[>", "copilot#Previous()", { expr = true, silent = true, desc = "Copilot Prev" })
+
+-- Chat (code companion)
+map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Code Companion Chat" })
+map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "Code Companion Actions" })
 
 -- Make it more like IntelliJ
 map({ "n", "t" }, "<C-p>", function()

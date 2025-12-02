@@ -22,7 +22,7 @@ return {
     "ggandor/leap.nvim",
     event = "VeryLazy",
     config = function()
-      local leap = require("leap")
+      local leap = require "leap"
 
       -- Clear any existing mappings set by leap or others if needed
       -- vim.keymap.del({ "n", "x", "o" }, "gs")
@@ -39,16 +39,73 @@ return {
   },
   {
     "tpope/vim-surround",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "github/copilot.vim",
-    event = "InsertEnter",
+    lazy = false, -- load at startup
     config = function()
-      -- optional tweaks
-      vim.g.copilot_no_tab_map = true    -- don't use <Tab>
+      vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
-      vim.g.copilot_node_command = "node" -- make sure node is used
+      vim.g.copilot_node_command = "node"
     end,
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    lazy = false, -- load at startup
+    version = "v17.33.0",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      strategies = {
+        chat = {
+          headers = {
+            context = "Current file: ${file.name} (${filetype})\n",
+          },
+          -- roles = {
+          --   ---The header name for the LLM's messages
+          --   ---@type string|fun(adapter: CodeCompanion.Adapter): string
+          --   llm = function(adapter)
+          --     return "󰚩  (" .. adapter.formatted_name .. ")"
+          --   end,
+          --
+          --   ---The header name for your messages
+          --   ---@type string
+          --   user = " ",
+          -- },
+        },
+      },
+
+      display = {
+        chat = {
+          show_agent_name = true,
+          separator = "─",
+          show_context = true,
+          show_header_separator = false,
+          show_settings = false,
+          show_token_count = true,
+          show_tools_processing = true,
+          start_in_insert_mode = false,
+          window = {
+            width = 0.3,
+          },
+        },
+      },
+
+      edit = {
+        diff = {
+          enabled = true,
+          algorithm = "patience",
+        },
+      },
+
+      ask = { use_selection = true },
+
+      chat = {
+        save_session = true,
+        load_session = true,
+      },
+    },
   },
 }
