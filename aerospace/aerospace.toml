@@ -180,7 +180,15 @@ automatically-unhide-macos-hidden-apps = false
     # alt-shift-x = 'move-node-to-workspace X'
     # alt-shift-y = 'move-node-to-workspace Y'
     # alt-shift-z = 'move-node-to-workspace Z'
-    #
+
+    alt-w = 'exec-and-forget open -a /Applications/iTerm.app'
+    alt-i = 'exec-and-forget open -a "/Applications/IntelliJ IDEA.app"'
+    alt-p = 'exec-and-forget open -a /Applications/PyCharm.app'
+    alt-t = 'exec-and-forget open -a "/Applications/Microsoft Teams.app"'
+    alt-e = 'exec-and-forget open -a "/Applications/Microsoft Edge.app"'
+    alt-o = 'exec-and-forget open -a "/Applications/Omnissa Horizon Client.app"'
+    # alt-f = 'exec-and-forget open -a /System/Library/CoreServices/Finder.app'
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
