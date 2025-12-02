@@ -9,7 +9,7 @@ right_format = """$all"""
 command_timeout = 1000
 
 [character]
-# vicmd_symbol = "[N] >>>"
+vimcmd_symbol = '[N](bold mauve) >>>'
 success_symbol = '[➜](bold green)'
 
 [palettes.catppuccin_mocha]
