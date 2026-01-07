@@ -37,6 +37,10 @@ map("n", "<leader>V", function()
   require("nvchad.term").new { pos = "vsp" }
 end, { desc = "terminal new vertical term" })
 
+map({ "n", "t" }, "<leader>I", function()
+  require("nvchad.term").toggle { pos = "float", id = "ftoggleTerm" }
+end, { desc = "terminal toggleable floating term" })
+
 -- Copilot
 map({ "n", "i" }, "<C-m>", function()
   local status = vim.fn["copilot#Enabled"]()
@@ -46,7 +50,7 @@ map({ "n", "i" }, "<C-m>", function()
     -- vim.cmd "Copilot setup"
     vim.cmd "Copilot enable"
   end
-end, { desc = "Toggle Copilot" })
+end, { desc = "Toggle Copilot Completions" })
 
 -- Suggestions
 map("i", "<C-l>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
@@ -61,3 +65,4 @@ map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "Code 
 map({ "n", "t" }, "<C-p>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
+
