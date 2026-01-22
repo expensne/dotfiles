@@ -25,6 +25,15 @@ export PATH=/opt/homebrew/bin:$PATH
 export PATH="$PATH:/opt/podman/bin"
 # - Pipx
 export PATH="$PATH:$HOME/.local/bin"
+# - Custom apps
+export PATH="$PATH:$HOME/apps/"
+
+# Fly
+export FLYCTL_INSTALL="$HOME/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# Conda
+export PATH="$PATH:/opt/miniconda3/bin"
 
 # Oh-My-ZSH like stuff
 source "$ZSH_HOME/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -56,6 +65,7 @@ alias gba='git branch -a'
 alias gadd='git add'
 alias ga='git add -p'
 alias gre='git reset'
+alias gp='git push'
 
 # Docker/Podman
 alias docker="podman"
@@ -79,3 +89,7 @@ eval "$(starship init zsh)"
 # }
 # starship_precmd_user_func="set_win_title"
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
