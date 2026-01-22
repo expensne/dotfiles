@@ -14,7 +14,7 @@ nmap <leader>X <Action>(CloseAllEditorsButActive)
 nmap <leader><S-Tab> <Action>(PreviousTab)
 nmap <leader><Tab> <Action>(NextTab)
 
-nmap <leader>h <Action>(SplitHorizontally)
+"nmap <leader>s <Action>(SplitHorizontally)
 nmap <leader>v <Action>(SplitVertically)
 nmap <leader>c <Action>(Unsplit)
 
@@ -37,18 +37,20 @@ nmap <leader>fa <Action>(FindInPath)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>c <Action>(CallHierarchy)
 " -- go to
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
 nmap gd <Action>(GotoDeclaration)
 nmap gD <Action>(GotoImplementation)
-nmap <leader>ge <Action>(GotoNextError)
-nmap <leader>gE <Action>(GotoPreviousError)
-nmap <leader>s <Action>(ShowUsages)
-nmap <leader>S <Action>(FindUsages)
+"nmap <leader>s <Action>(ShowUsages)
+nmap <leader>s <Action>(FindUsages)
+nmap <leader>S <Action>(GotoSuperMethod)
 " -- refactor
 " nmap <leader>r :action RenameElement<CR>ea
 nmap <leader>r <Action>(RenameElement)
 nmap <leader>R <Action>(Refactorings.QuickListPopupAction)
 vmap <leader>R <Action>(Refactorings.QuickListPopupAction)
 nmap <leader>fm <Action>(ReformatCode)
+nmap <leader>fo <Action>(OptimizeImports)
 "vmap <leader>o <Action>(ReformatCode) 
 nmap <leader>a <Action>(ShowIntentionActions)
 vmap <leader>a <Action>(ShowIntentionActions)
@@ -60,11 +62,13 @@ nmap <leader>p <Action>(ParameterInfo)
 nmap <leader>b <Action>(ToggleLineBreakpoint)
 " accessing IDE tool windows (use Ctrl prefix for tool windows)
 map <D-1> :NERDTreeToggle<cr>
-map <D-2> <Action>(ActivateCommitToolWindow)
-map <D-3> <Action>(ActivateRunToolWindow)
-map <D-4> <Action>(ActivateDebugToolWindow)
-map <D-4> <Action>(ActivateProblemsViewToolWindow)
+map <D-n> :NERDTreeToggle<cr>
+"map <D-2> <Action>(ActivateCommitToolWindow)
+"map <D-3> <Action>(ActivateRunToolWindow)
+"map <D-4> <Action>(ActivateDebugToolWindow)
+"map <D-4> <Action>(ActivateProblemsViewToolWindow)
 "map <C-m> Copilot ...
+"map <C-p> Terminal ...
 nmap <D-z> <Action>(ToggleDistractionFreeMode)
 
 " AceJump instead of leap.vim
