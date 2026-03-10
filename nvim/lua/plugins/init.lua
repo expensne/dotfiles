@@ -5,10 +5,19 @@ return {
     opts = require "configs.conform",
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = require "configs.treesitter",
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lsp"
     end,
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+    dependencies = { "folke/which-key.nvim" },
+    ft = "java",
   },
   {
     "unblevable/quick-scope",

@@ -5,10 +5,12 @@ local servers = {
   "html",
   "cssls",
   "jsonls",
-  -- Py
+  -- Python
   "pyright",
   "ruff",
   "mypy",
+  -- Java / Spring
+  "jdtls",
 }
 
 vim.lsp.enable(servers)
