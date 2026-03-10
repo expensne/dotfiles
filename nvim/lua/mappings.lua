@@ -23,10 +23,10 @@ map({ "n", "v" }, "<leader>v", "<C-w>v", { desc = "Split Vertically" })
 map({ "n", "v" }, "<leader>s", "<C-w>s", { desc = "Split Horizontally" })
 map({ "n", "v" }, "<leader>c", "<C-w>c", { desc = "Close Current Split" })
 
-map("n", "<C-w>+", ":resize +5<CR>", { desc = "Increase height by 5" })
-map("n", "<C-w>-", ":resize -5<CR>", { desc = "Decrease height by 5" })
-map("n", "<C-w><", ":vertical resize -5<CR>", { desc = "Decrease width by 5" })
-map("n", "<C-w>>", ":vertical resize +5<CR>", { desc = "Increase width by 5" })
+map("n", "<M-Up>", ":resize +10<CR>", { desc = "Increase height" })
+map("n", "<M-Down>", ":resize -10<CR>", { desc = "Decrease height" })
+map("n", "<M-Right>", ":vertical resize -10<CR>", { desc = "Decrease width" })
+map("n", "<M-Left>", ":vertical resize +10<CR>", { desc = "Increase width" })
 
 -- Terminal
 map("n", "<leader>S", function()
