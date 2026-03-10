@@ -28,6 +28,10 @@ export PATH="$PATH:$HOME/.local/bin"
 # - Custom apps
 export PATH="$PATH:$HOME/apps/"
 
+# Java
+export JAVA_HOME="$(/usr/libexec/java_home -v 21)"
+export PATH="$JAVA_HOME/bin:$PATH"
+
 # Fly
 export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
