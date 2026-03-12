@@ -27,6 +27,8 @@ export PATH="$PATH:/opt/podman/bin"
 export PATH="$PATH:$HOME/.local/bin"
 # - Custom apps
 export PATH="$PATH:$HOME/apps/"
+# - Global NPM
+export PATH="$PATH:$HOME/.npm-global/bin"
 
 # Java
 export JAVA_HOME="$(/usr/libexec/java_home -v 21)"
@@ -56,6 +58,9 @@ alias vim="nvim"
 
 # Tmux
 alias tm="tmux"
+
+# Copilot CLI
+alias cop="copilot"
 
 # Git
 alias gc="git commit -m"
@@ -88,12 +93,11 @@ alias ......="cd ../../../../.."
 
 eval "$(starship init zsh)"
 
-# function set_win_title(){
-#     echo -ne "\033]0; $(basename "$PWD") \007"
-# }
-# starship_precmd_user_func="set_win_title"
-
-
+# Load .zshrc.secrets
+if [ -f "$ZSH_HOME/.zshrc.secrets" ]; then
+  source "$ZSH_HOME/.zshrc.secrets"
+fi
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
