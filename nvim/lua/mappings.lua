@@ -17,6 +17,9 @@ map("x", "<leader>p", [["_dP]], { desc = "Paste without yank" })
 -- Go back/forward
 map("n", "gb", "<C-o>", { desc = "Go back" })
 map("n", "gf", "<C-i>", { desc = "Go forward" })
+map("n", "gi", function()
+  vim.lsp.buf.implementation()
+end, { desc = "LSP: Go to implementation" })
 
 -- Splitting
 map({ "n", "v" }, "<leader>v", "<C-w>v", { desc = "Split Vertically" })
@@ -40,6 +43,16 @@ end, { desc = "terminal new vertical term" })
 map({ "n", "t" }, "<leader>I", function()
   require("nvchad.term").toggle { pos = "float", id = "ftoggleTerm" }
 end, { desc = "terminal toggleable floating term" })
+
+-- Git
+map("n", "<leader>gl", "<cmd>Gitsigns toggle_linehl<CR>", { desc = "Git: toggle line highlight" })
+map("n", "]h", "<cmd>Gitsigns next_hunk<CR>", { desc = "Git: next hunk" })
+map("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Git: prev hunk" })
+
+map("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Diffview: Open" })
+map("n", "<leader>gh", "<cmd>DiffviewFileHistory<CR>", { desc = "Diffview: File history" })
+map("n", "<leader>gH", "<cmd>DiffviewFileHistory %<CR>", { desc = "Diffview: Current file history" })
+map("n", "<leader>gq", "<cmd>DiffviewClose<CR>", { desc = "Diffview: Close" })
 
 -- Copilot
 map({ "n", "i" }, "<C-m>", function()
@@ -65,4 +78,3 @@ map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "Code 
 map({ "n", "t" }, "<C-p>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
-

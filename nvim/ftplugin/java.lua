@@ -1,9 +1,9 @@
-local jdtls = require("jdtls")
+local jdtls = require "jdtls"
 
-local home = os.getenv("HOME")
+local home = os.getenv "HOME"
 
 -- Mason path (NvChad uses Mason by default)
-local mason = vim.fn.stdpath("data") .. "/mason"
+local mason = vim.fn.stdpath "data" .. "/mason"
 local jdtls_path = mason .. "/packages/jdtls"
 
 -- Lombok jar: point this to your actual jar
@@ -43,15 +43,20 @@ local cmd = {
   "-javaagent:" .. lombok_jar,
 
   "--add-modules=ALL-SYSTEM",
-  "--add-opens", "java.base/java.util=ALL-UNNAMED",
-  "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+  "--add-opens",
+  "java.base/java.util=ALL-UNNAMED",
+  "--add-opens",
+  "java.base/java.lang=ALL-UNNAMED",
 
-  "-jar", launcher_jar,
-  "-configuration", config_dir,
-  "-data", workspace_dir,
+  "-jar",
+  launcher_jar,
+  "-configuration",
+  config_dir,
+  "-data",
+  workspace_dir,
 }
 
-local java_home = os.getenv("JAVA_HOME")
+local java_home = os.getenv "JAVA_HOME"
 if java_home == nil then
   vim.notify("JAVA_HOME environment variable is not set. Please set it to your JDK path.", vim.log.levels.ERROR)
   return
@@ -63,7 +68,7 @@ local settings = {
     configuration = {
       runtimes = {
         {
-          name = "JavaHomeJDK",
+          name = "JavaSE-21",
           path = java_home,
         },
       },
@@ -88,6 +93,14 @@ local config = {
   init_options = {
     bundles = {},
   },
+  on_attach = function(client, bufnr)
+    -- Disable semantic tokens so Tree-sitter colors win
+    client.server_capabilities.semanticTokensProvider = nil
+    -- enable semantic tokens (better highlighting)
+    -- if client.server_capabilities.semanticTokensProvider then
+    --   vim.lsp.semantic_tokens.start(bufnr, client.id)
+    -- end
+  end,
 }
 
 jdtls.start_or_attach(config)

@@ -1,4 +1,14 @@
 return {
+  -- {
+  --   "catppuccin/nvim",
+  --   opts = {
+  --     integrations = {
+  --       gitsigns = true,
+  --       nvimtree = false,
+  --       treesitter = false,
+  --     },
+  --   }
+  -- },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -13,6 +23,20 @@ return {
     config = function()
       require "configs.lsp"
     end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.tree",
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = require "configs.gitsigns",
+  },
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
+    config = true, -- uses default setup()
   },
   {
     "mfussenegger/nvim-jdtls",
