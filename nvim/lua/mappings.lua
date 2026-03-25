@@ -74,6 +74,9 @@ map("i", "<C-[>", "copilot#Previous()", { expr = true, silent = true, desc = "Co
 map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Code Companion Chat" })
 map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "Code Companion Actions" })
 
+-- Markdown
+map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview Toggle" })
+
 -- Make it more like IntelliJ
 map({ "n", "t" }, "<C-p>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }

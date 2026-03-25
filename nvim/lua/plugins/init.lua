@@ -62,6 +62,12 @@ return {
     event = "VeryLazy",
   },
   {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = "cd app && npm install",
+  },
+  {
     "github/copilot.vim",
     lazy = false,
     config = function()
