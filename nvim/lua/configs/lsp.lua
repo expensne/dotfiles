@@ -5,6 +5,9 @@ local servers = {
   "html",
   "cssls",
   "jsonls",
+  -- Angular/TS
+  "angularls",
+  "tsserver",
   -- Python
   "pyright",
   "ruff",
