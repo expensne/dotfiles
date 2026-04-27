@@ -75,6 +75,7 @@ alias gadd='git add'
 alias ga='git add -p'
 alias gre='git reset'
 alias gp='git push'
+alias gwt='git worktree'
 
 # Docker/Podman
 alias docker="podman"
