@@ -60,7 +60,7 @@ alias vim="nvim"
 alias tm="tmux"
 
 # Copilot CLI
-alias cop="copilot"
+alias cop="copilot --agent caveman --allow-tool='read,write,shell(mkdir:*),shell(find:*),shell(mvn:*),shell(./mvnw:*),shell(sed:*),shell(xargs:*),shell(git fetch),shell(git merge-base)'"
 
 # Git
 alias gc="git commit -m"
@@ -84,6 +84,14 @@ alias dpa="docker ps -a"
 alias dl="docker ps -l -q"
 alias dx="docker exec -it"
 
+# Misc
+alias spotless='mvn spotless:apply -o'
+
+# Kubernetes
+alias kcli="kubectl"
+alias kctl="kubectl"
+export KUBECONFIG="$HOME/.kube/config/kubeconfig-cs-api-prod1.yaml"
+
 # Dirs
 alias ..="cd .."
 alias ...="cd ../.."
@@ -100,4 +108,3 @@ fi
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
-
