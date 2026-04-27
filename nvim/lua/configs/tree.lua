@@ -1,4 +1,8 @@
 local opts = {
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
   view = {
     -- side = "right",
     width = function()

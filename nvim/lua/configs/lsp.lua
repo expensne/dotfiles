@@ -12,8 +12,7 @@ local servers = {
   "pyright",
   "ruff",
   "mypy",
-  -- Java / Spring
-  "jdtls",
+  -- Java / Spring: jdtls is managed by nvim-jdtls via ftplugin/java.lua
 }
 
 vim.lsp.enable(servers)

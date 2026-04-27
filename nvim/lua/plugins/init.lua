@@ -26,6 +26,7 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    lazy = false,
     opts = require "configs.tree",
   },
   {

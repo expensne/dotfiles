@@ -95,11 +95,11 @@ local config = {
   },
   on_attach = function(client, bufnr)
     -- Disable semantic tokens so Tree-sitter colors win
-    client.server_capabilities.semanticTokensProvider = nil
+    -- client.server_capabilities.semanticTokensProvider = nil
     -- enable semantic tokens (better highlighting)
-    -- if client.server_capabilities.semanticTokensProvider then
-    --   vim.lsp.semantic_tokens.start(bufnr, client.id)
-    -- end
+    if client.server_capabilities.semanticTokensProvider then
+      vim.lsp.semantic_tokens.start(bufnr, client.id)
+    end
   end,
 }
 

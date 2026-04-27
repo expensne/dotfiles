@@ -20,11 +20,23 @@ map("n", "gf", "<C-i>", { desc = "Go forward" })
 map("n", "gi", function()
   vim.lsp.buf.implementation()
 end, { desc = "LSP: Go to implementation" })
+map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", { desc = "LSP: Find references" })
+
+-- LSP
+-- vim.keymap.set({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map({ "n", "x" }, "<leader>ca", function()
+  vim.lsp.buf.code_action { context = { diagnostics = {} } }
+end, { desc = "Code Action" })
+-- vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>cr", function()
+  vim.lsp.buf.rename()
+end, { desc = "Rename" })
 
 -- Splitting
 map({ "n", "v" }, "<leader>v", "<C-w>v", { desc = "Split Vertically" })
 map({ "n", "v" }, "<leader>s", "<C-w>s", { desc = "Split Horizontally" })
-map({ "n", "v" }, "<leader>c", "<C-w>c", { desc = "Close Current Split" })
+map({ "n", "v" }, "<leader>V", "<C-w>c", { desc = "Close Current Split" })
+map({ "n", "v" }, "<leader>S", "<C-w>c", { desc = "Close Current Split" })
 
 map("n", "<M-Up>", ":resize +10<CR>", { desc = "Increase height" })
 map("n", "<M-Down>", ":resize -10<CR>", { desc = "Decrease height" })
@@ -71,8 +83,8 @@ map("i", "<C-]>", "copilot#Next()", { expr = true, silent = true, desc = "Copilo
 map("i", "<C-[>", "copilot#Previous()", { expr = true, silent = true, desc = "Copilot Prev" })
 
 -- Chat (code companion)
-map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Code Companion Chat" })
-map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "Code Companion Actions" })
+map({ "n", "v" }, "<leader>ccc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Code Companion Chat" })
+map({ "n", "v" }, "<leader>cca", "<cmd>CodeCompanionActions<CR>", { desc = "Code Companion Actions" })
 
 -- Markdown
 map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview Toggle" })
