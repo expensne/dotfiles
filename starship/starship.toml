@@ -9,7 +9,7 @@ right_format = """$all"""
 command_timeout = 1000
 
 [character]
-vimcmd_symbol = '[N](bold mauve) >>>'
+vimcmd_symbol = '[N](bold mauve)'
 success_symbol = '[➜](bold green)'
 
 [palettes.catppuccin_mocha]
@@ -40,6 +40,14 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-[git_branch]
-format =  '[$symbol$branch(:$remote_branch)]($style)'
+[cmd_duration]
+disabled = true
 
+[aws]
+disabled = true
+
+[git_branch]
+format =  '[$symbol$branch(:$remote_branch)]($style) '
+
+[java]
+version_format = "v${major}"
