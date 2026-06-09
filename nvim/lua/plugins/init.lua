@@ -10,6 +10,10 @@ return {
   --   }
   -- },
   {
+    "nvim-telescope/telescope.nvim",
+    opts = require "configs.telescope",
+  },
+  {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
