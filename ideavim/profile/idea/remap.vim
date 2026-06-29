@@ -14,9 +14,9 @@ nmap <leader>X <Action>(CloseAllEditorsButActive)
 nmap <leader><S-Tab> <Action>(PreviousTab)
 nmap <leader><Tab> <Action>(NextTab)
 
-nmap <leader>sh <Action>(SplitHorizontally)
-nmap <leader>sv <Action>(SplitVertically)
-nmap <leader>sc <Action>(Unsplit)
+"nmap <leader>s <Action>(SplitHorizontally)
+nmap <leader>v <Action>(SplitVertically)
+nmap <leader>c <Action>(Unsplit)
 
 " window navigation
 nmap <leader>e <Action>(JumpToLastWindow)
@@ -25,49 +25,48 @@ nmap <leader>wN <Action>(PrevSplitter)
 nmap <D-l> <Action>(NextSplitter)
 nmap <D-h> <Action>(PrevSplitter)
 
-" move lines
-"nmap <D-j> <Action>(MoveLineDown)
-"xmap <D-j> <Action>(MoveLineDown)
-"nmap <D-k> <Action>(MoveLineUp)
-"xmap <D-k> <Action>(MoveLineUp)
-
 " accessing IDE features
 " -- find
-nmap <leader>fa <Action>(FindInPath)
+nmap <leader>fw <Action>(FindInPath)
 nmap <leader>ff <Action>(GotoFile)
-nmap <leader>c <Action>(CallHierarchy)
+nmap <leader>fa <Action>(GotoFile)
+nmap <leader>fr <Action>(GotoDeclaration)
+nmap <leader>fR <Action>(FindUsages)
+"nmap <leader>c <Action>(CallHierarchy)
 " -- go to
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
 nmap gd <Action>(GotoDeclaration)
-nmap gD <Action>(GotoImplementation)
-nmap <leader>ge <Action>(GotoNextError)
-nmap <leader>gE <Action>(GotoPreviousError)
-nmap <leader>h <Action>(HighlightUsagesInFile)
-nmap <leader>s <Action>(ShowUsages)
-nmap <leader>S <Action>(FindUsages)
+nmap gi <Action>(GotoImplementation)
+nmap gD <Action>(GotoTypeDeclaration)
+"nmap <leader>s <Action>(ShowUsages)
+nmap gS <Action>(GotoSuperMethod)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
 " -- refactor
-" nmap <leader>r :action RenameElement<CR>ea
-nmap <leader>r <Action>(RenameElement)
-nmap <leader>R <Action>(Refactorings.QuickListPopupAction)
-vmap <leader>R <Action>(Refactorings.QuickListPopupAction)
+nmap K <Action>(ShowHoverInfo)
 nmap <leader>fm <Action>(ReformatCode)
-"vmap <leader>o <Action>(ReformatCode) 
-nmap <leader>a <Action>(ShowIntentionActions)
-vmap <leader>a <Action>(ShowIntentionActions)
-nmap <leader>H <Action>(Replace)
+nmap gra <Action>(ShowIntentionActions)
+vmap gra <Action>(ShowIntentionActions)
+nmap <leader>ca <Action>(ShowIntentionActions)
+vmap <leader>ca <Action>(ShowIntentionActions)
+nmap grA <Action>(Refactorings.QuickListPopupAction)
+vmap grA <Action>(Refactorings.QuickListPopupAction)
+nmap grn <Action>(RenameElement)
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>cR <Action>(Refactorings.QuickListPopupAction)
+"nmap <leader>H <Action>(Replace)
+"nmap <leader>A <Action>(Generate)
 " -- some more useful actions
-nmap <leader>g <Action>(Generate)
-nmap <leader>q <Action>(ShowHoverInfo)
-nmap <leader>p <Action>(ParameterInfo)
-nmap <leader>v <Action>(ActivateVersionControlToolWindow)
-nmap <leader>V <Action>(vcs.QuickListPopupAction)
-nmap <leader>b <Action>(ToggleLineBreakpoint)
 " accessing IDE tool windows (use Ctrl prefix for tool windows)
 map <D-1> :NERDTreeToggle<cr>
-map <D-2> <Action>(ActivateCommitToolWindow)
-map <D-3> <Action>(ActivateRunToolWindow)
-map <D-4> <Action>(ActivateDebugToolWindow)
-map <D-4> <Action>(ActivateProblemsViewToolWindow)
-"map <C-m> Copilot ...
+map <D-n> :NERDTreeToggle<cr>
+"map <D-2> <Action>(ActivateCommitToolWindow)
+"map <D-3> <Action>(ActivateRunToolWindow)
+"map <D-4> <Action>(ActivateDebugToolWindow)
+"map <D-4> <Action>(ActivateProblemsViewToolWindow)
+"map <leader>cpt Copilot ...
+"map <C-p> Terminal ...
 nmap <D-z> <Action>(ToggleDistractionFreeMode)
 
 " AceJump instead of leap.vim
