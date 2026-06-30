@@ -7,6 +7,7 @@ local opts = {
     -- General
     "json",
     "markdown",
+    "markdown_inline",
     "bash",
     "yaml",
     -- Python
