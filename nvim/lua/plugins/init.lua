@@ -114,6 +114,12 @@ return {
     build = "cd app && npm install",
   },
   {
+    "kevalin/mermaid.nvim",
+    ft = { "mermaid" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = require "configs.mermaid",
+  },
+  {
     "github/copilot.vim",
     lazy = false,
     config = function()

@@ -8,6 +8,7 @@ local opts = {
     "json",
     "markdown",
     "markdown_inline",
+    "mermaid",
     "bash",
     "yaml",
     -- Python

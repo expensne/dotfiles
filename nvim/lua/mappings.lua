@@ -85,7 +85,10 @@ map({ "n", "v" }, "<leader>ccc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "
 map({ "n", "v" }, "<leader>cca", "<cmd>CodeCompanionActions<CR>", { desc = "Code Companion Actions" })
 
 -- Markdown
-map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview Toggle" })
+map("n", "<leader>mdp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown: Preview Toggle" })
+
+-- Mermaid
+map("n", "<leader>mmp", "<cmd>MermaidPreview<CR>", { desc = "Mermaid: Preview" })
 
 -- Trouble
 map("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Trouble: Workspace diagnostics" })
