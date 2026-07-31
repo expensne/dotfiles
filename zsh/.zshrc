@@ -15,7 +15,8 @@ IDEAVIM_HOME="$HOME/dotfiles/ideavim"
 REPO_HOME="$HOME/repos"
 WORKTREE_HOME="$HOME/worktrees"
 
-EDITOR=/opt/homebrew/bin/nvim
+export EDITOR=/opt/homebrew/bin/nvim
+export VISUAL=/opt/homebrew/bin/nvim
 
 # VI Mode
 set -o vi
@@ -40,8 +41,8 @@ export PATH="$JAVA_HOME/bin:$PATH"
 export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-# Conda
-export PATH="$PATH:/opt/miniconda3/bin"
+# Conda and Python
+export PATH="/opt/miniconda3/envs/py313/bin:/opt/miniconda3/bin:$PATH"
 
 # Oh-My-ZSH like stuff
 source "$ZSH_HOME/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -66,8 +67,11 @@ tm() {
 # Copilot CLI
 alias cop="copilot \
   --agent caveman \
-  --allow-tool='read,write,shell(mkdir:*),shell(find:*),shell(mvn:*),shell(./mvnw:*),shell(sed:*),shell(xargs:*),shell(git fetch),shell(git merge-base)' \
+  --add-dir /tmp \
+  --allow-tool='read,write,shell(mkdir:*),shell(find:*),shell(mvn:*),shell(./mvnw:*),shell(sed:*),shell(xargs:*),shell(git:*),shell(tmux:*)' \
+  --allow-tool='shell(awk:*),shell(grep:*),shell(jq:*),shell(uv:*),shell(tee:*),shell(gh:*),shell(sqlite3:*),shell(lgtm:*),lgtm' \
   --allow-tool='confluence,confluence-topics,design-patterns,spring-boot-patterns,effective-java' \
+  --deny-tool='shell(git push)' \
   --allow-url='github.com,api.github.com,raw.githubusercontent.com,spring.io'"
 
 # Git
