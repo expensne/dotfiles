@@ -3,6 +3,9 @@ local opts = {
     enable = true,
     auto_open = true,
   },
+  filters = {
+    custom = { "__pycache__" },
+  },
   view = {
     -- side = "right",
     width = function()
