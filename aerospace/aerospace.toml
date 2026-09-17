@@ -188,6 +188,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-e = 'exec-and-forget open -a "/Applications/Microsoft Edge.app"'
     alt-o = 'exec-and-forget open -a "/Applications/Omnissa Horizon Client.app"'
     alt-v = 'exec-and-forget open -a "/Applications/Visual Studio Code.app"'
+    alt-c = 'exec-and-forget open -a "/Applications/GitHub Copilot.app"'
     # alt-f = 'exec-and-forget open -a /System/Library/CoreServices/Finder.app'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
