@@ -59,6 +59,20 @@ alias ll="ls -hAlt"
 alias vi="nvim"
 alias vim="nvim"
 
+vzsh() {
+  if (( $# > 1 )); then
+    printf '%s\n' 'Usage: vzsh [corporate|secrets]' >&2
+    return 1
+  fi
+
+  case "$1" in
+    "")        vi "$ZSH_HOME/.zshrc" ;;
+    corporate) vi "$ZSH_HOME/.zshrc.corporate" ;;
+    secrets)   vi "$ZSH_HOME/.zshrc.secrets" ;;
+    *) printf '%s\n' 'Usage: vzsh [corporate|secrets]' >&2; return 1 ;;
+  esac
+}
+
 # Tmux
 tm() { 
   tmux new-session -A -s "${1:-work}"
@@ -69,7 +83,7 @@ alias cop="copilot \
   --agent caveman \
   --add-dir /tmp \
   --allow-tool='read,write,shell(mkdir:*),shell(find:*),shell(mvn:*),shell(./mvnw:*),shell(sed:*),shell(xargs:*),shell(git:*),shell(tmux:*)' \
-  --allow-tool='shell(awk:*),shell(grep:*),shell(jq:*),shell(uv:*),shell(tee:*),shell(gh:*),shell(sqlite3:*),shell(lgtm:*),lgtm' \
+  --allow-tool='shell(awk:*),shell(grep:*),shell(jq:*),shell(uv:*),shell(tee:*),shell(gh:*),shell(sqlite3:*),shell(printf),shell(lgtm:*),lgtm' \
   --allow-tool='confluence,confluence-topics,design-patterns,spring-boot-patterns,effective-java' \
   --deny-tool='shell(git push)' \
   --allow-url='github.com,api.github.com,raw.githubusercontent.com,spring.io'"
@@ -227,31 +241,14 @@ alias dps="docker ps"
 alias dpa="docker ps -a"
 alias dl="docker ps -l -q"
 alias dx="docker exec -it"
-
-dstop() {
-  local -a ids
-  ids=("${(@f)$(docker ps -q)}")
-
-  if (( ${#ids} )); then
-    docker stop "${ids[@]}"
-  else
-    echo "No running containers."
-  fi
-}
-
-dstoprm() {
-  local -a ids
-  ids=("${(@f)$(docker ps -aq)}")
-
-  if (( ${#ids} )); then
-    docker stop "${ids[@]}" 2>/dev/null
-    docker rm "${ids[@]}"
-  else
-    echo "No containers."
-  fi
-}
+alias dstop='podman stop --all'
+alias dstoprm='podman rm --all'
 
 # Misc
+spring() {
+  local profile="${1:-local}"
+  mvn spring-boot:run -Dspring-boot.run.profiles="$profile"
+}
 alias spotless='mvn spotless:apply -o'
 
 # Kubernetes
@@ -282,3 +279,6 @@ if [ -f "$ZSH_HOME/.zshrc.secrets" ]; then
   source "$ZSH_HOME/.zshrc.secrets"
 fi
 
+
+# Added by codebase-memory-mcp install
+export PATH="/Users/fabian.grosch/.local/bin:$PATH"
