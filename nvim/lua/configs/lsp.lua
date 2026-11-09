@@ -7,7 +7,7 @@ local servers = {
   "jsonls",
   -- Angular/TS
   "angularls",
-  "ts_ls",
+  "vtsls",
   -- Python
   "pyright",
   "ruff",

@@ -43,6 +43,10 @@ nmap gD <Action>(GotoTypeDeclaration)
 nmap gS <Action>(GotoSuperMethod)
 nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap [h <Action>(VcsShowPrevChangeMarker)
+nmap <leader>gd <Action>(Compare.SameVersion)
+nmap <leader>gq <Action>(CloseContent)
+nmap <leader>gh <Action>(Vcs.ShowHistoryForBlock)
+nmap <leader>gH <Action>(Vcs.ShowTabbedFileHistory)
 " -- refactor
 nmap K <Action>(ShowHoverInfo)
 nmap <leader>fm <Action>(ReformatCode)
@@ -74,6 +78,12 @@ nmap s <Action>(AceAction)
 nmap S <Action>(AceDeclarationAction)
 
 nmap <leader>t <Action>(ExpandCollapseToggleAction)
+nmap <leader>tx <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>ts <Action>(FileStructurePopup)
+
+" comments
+nmap <leader>/ <Action>(CommentByLineComment)
+vmap <leader>/ <Action>(CommentByBlockComment)
 
 " remap ctrl 
 nmap <D-d> <C-d>
